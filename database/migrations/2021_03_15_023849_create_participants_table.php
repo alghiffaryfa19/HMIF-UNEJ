@@ -15,6 +15,13 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('instansi');
+            $table->string('email');
+            $table->string('identity');
+            $table->string('code')->unique();
+            $table->unsignedBigInteger('sub_event_id');
+            $table->foreign('sub_event_id')->references('id')->on('sub_events')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -15,6 +15,9 @@ class CreateSubEventsTable extends Migration
     {
         Schema::create('sub_events', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->unsignedBigInteger('proker_id');
+            $table->foreign('proker_id')->references('id')->on('prokers')->onDelete('cascade');
             $table->timestamps();
         });
     }

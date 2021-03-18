@@ -15,6 +15,11 @@ class CreateStaffTable extends Migration
     {
         Schema::create('staff', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('occupation');
+            $table->unsignedBigInteger('divisi_id');
+            $table->foreign('divisi_id')->references('id')->on('divisis')->onDelete('cascade');
+            $table->text('photo');
             $table->timestamps();
         });
     }

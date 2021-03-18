@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Staff extends Model
 {
     use HasFactory;
+    protected $table='staff';
+    protected $guarded = [];
+
+    public function divisi()
+    {
+        return $this->belongsTo(\App\Models\Divisi::class, 'divisi_id','id');
+    }
 }
