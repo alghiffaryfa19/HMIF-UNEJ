@@ -15,6 +15,14 @@ class CreateProkersTable extends Migration
     {
         Schema::create('prokers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug');
+            $table->unsignedBigInteger('divisi_id');
+            $table->foreign('divisi_id')->references('id')->on('divisis')->onDelete('cascade');
+            $table->longText('description');
+            $table->text('thumbnail');
+            $table->date('start');
+            $table->date('end');
             $table->timestamps();
         });
     }
