@@ -36,19 +36,22 @@
                             </x-slot>
         
                             <x-slot name="content">
-                                <x-dropdown-link>
+                                <x-dropdown-link :href="route('category.index')">
                                         {{ __('Category') }}
                                 </x-dropdown-link>
-                                <x-dropdown-link>
+                                <x-dropdown-link :href="route('tag.index')">
                                     {{ __('Tags') }}
                                 </x-dropdown-link>
-                                <x-dropdown-link>
+                                <x-dropdown-link :href="route('post.index')">
                                     {{ __('Post') }}
                                 </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>
-                        <x-nav-link>
-                            {{ __('Event') }}
+                        <x-nav-link :href="route('produk.index')">
+                            {{ __('Produk') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('sub_event.index')">
+                            {{ __('Sertifikat') }}
                         </x-nav-link>
                     </div>
                 </div>
