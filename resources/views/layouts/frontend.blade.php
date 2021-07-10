@@ -74,7 +74,7 @@
                   <a href="{{route('program-kerja')}}" class="text-white hover:bg-white hover:text-green-500 px-3 py-2 rounded-md text-sm font-medium">Proker</a>
                   <a href="{{route('blog')}}" class="text-white hover:bg-white hover:text-green-500 px-3 py-2 rounded-md text-sm font-medium">Blog</a>
                   <a href="{{route('prod')}}" class="text-white hover:bg-white hover:text-green-500 px-3 py-2 rounded-md text-sm font-medium">Produk</a>
-                  <a href="#" class="text-white hover:bg-white hover:text-green-500 px-3 py-2 rounded-md text-sm font-medium">Portofolio</a>
+                  <a href="{{route('por')}}" class="text-white hover:bg-white hover:text-green-500 px-3 py-2 rounded-md text-sm font-medium">Portofolio</a>
                   <a href="#" class="text-white hover:bg-white hover:text-green-500 px-3 py-2 rounded-md text-sm font-medium">Kontak</a>
                   <a href="#" class="text-white hover:bg-white hover:text-green-500 px-3 py-2 rounded-md text-sm font-medium">E-Certificate</a>
                 </div>

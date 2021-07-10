@@ -2,6 +2,14 @@
 @section('description','Himpunan Mahasiswa Informatika')
 @section('title','Beranda')
 @section('content')
+@if(session('sukses'))
+    <div class="mt-8 block text-sm text-green-500 bg-green-200 border border-green-400 h-12 flex items-center p-4 rounded-sm relative" role="alert">
+        <strong class="mr-1">Terima Kasih</strong> Telah memberikan masukan kepada kami
+        <button type="button" data-dismiss="alert" aria-label="Close" onclick="this.parentElement.remove();">
+            <span class="absolute top-0 bottom-0 right-0 text-2xl px-3 py-1 hover:text-red-900" aria-hidden="true" >×</span>
+        </button>
+    </div>
+@endif
 <div class="w-full">
     <div class="flex bg-white" style="height:600px;">
         <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
@@ -49,7 +57,7 @@
         <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
           <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Portofolio</h2>
           <p class="leading-relaxed text-base mb-4">Etalase yang menampilkan karya hebat Informatika</p>
-          <a class="text-green-500 inline-flex items-center">Lebih Dalam
+          <a href="{{route('por')}}" class="text-green-500 inline-flex items-center">Lebih Dalam
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
@@ -111,7 +119,7 @@
     </h2>
     <div class="mt-8 lex lg:mt-0 lg:flex-shrink-0">
       <div class="inline-flex rounded-md shadow">
-        <a href="{{route('register')}}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-500 hover:bg-green-300">
+        <a href="{{route('krisar')}}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-500 hover:bg-green-300">
           Kesini ya
         </a>
       </div>

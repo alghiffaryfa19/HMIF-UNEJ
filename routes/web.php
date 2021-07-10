@@ -11,6 +11,8 @@ use App\Http\Controllers\SubEventController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PhotoProdukController;
+use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\PhotoPortofolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,8 @@ use App\Http\Controllers\PhotoProdukController;
 
 Route::get('/', [FrontendController::class, 'index'])->name('landing');
 Route::get('/tentang', [FrontendController::class, 'tentang'])->name('tentang');
+Route::get('/kritik-saran', [FrontendController::class, 'krisar'])->name('krisar');
+Route::post('/kritik-saran', [FrontendController::class, 'krisar_store'])->name('kritiksaran.store');
 Route::get('/staff', [FrontendController::class, 'staff'])->name('staffs');
 Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
 Route::get('/produk', [FrontendController::class, 'produk'])->name('prod');
@@ -33,6 +37,9 @@ Route::get('/blog/{slug}', [FrontendController::class, 'detail_post'])->name('de
 Route::get('/program-kerja', [FrontendController::class, 'proker'])->name('program-kerja');
 Route::get('/kalender-program-kerja', [FrontendController::class, 'kalender'])->name('kalender');
 Route::get('/program-kerja/{slug}', [FrontendController::class, 'detail_proker'])->name('detail_proker');
+
+Route::get('/portofolio', [FrontendController::class, 'portofolio'])->name('por');
+Route::get('/portofolio/{portofolio}', [FrontendController::class, 'detail_portofolio'])->name('portofolio_detail');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function(){
@@ -72,6 +79,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function()
     Route::get('produk/{id}/foto/edit/{foto}', [PhotoProdukController::class, 'edit'])->name('foto.edit');
     Route::put('produk/{id}/foto/update/{foto}', [PhotoProdukController::class, 'update'])->name('foto.update');
     Route::get('produk/{id}/foto/delete/{foto}', [PhotoProdukController::class, 'destroy'])->name('foto.delete');
+
+    Route::get('portofolio/{id}/foto', [PhotoPortofolioController::class, 'index'])->name('foto.portofolio.index');
+    Route::post('portofolio/{id}/foto/store', [PhotoPortofolioController::class, 'store'])->name('foto.portofolio.store');
+    Route::get('portofolio/{id}/foto/edit/{foto}', [PhotoPortofolioController::class, 'edit'])->name('foto.portofolio.edit');
+    Route::put('portofolio/{id}/foto/update/{foto}', [PhotoPortofolioController::class, 'update'])->name('foto.portofolio.update');
+    Route::get('portofolio/{id}/foto/delete/{foto}', [PhotoPortofolioController::class, 'destroy'])->name('foto.portofolio.delete');
     
     
 });

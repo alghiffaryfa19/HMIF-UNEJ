@@ -50,6 +50,9 @@
                         <x-nav-link :href="route('produk.index')">
                             {{ __('Produk') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('portofolio.index')">
+                            {{ __('Portofolio') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('sub_event.index')">
                             {{ __('Sertifikat') }}
                         </x-nav-link>
