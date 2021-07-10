@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Staff;
 use App\Models\Proker;
+use App\Models\Suggestion;
+use App\Models\Portofolio;
 use App\Models\Product;
 use Acaronlex\LaravelCalendar\Calendar;
 use DB;
@@ -24,12 +26,20 @@ class FrontendController extends Controller
         return view('frontend.blog', compact('post'));
     }
 
-    public function produk(Request $request)
+    public function produk()
     {
         $produk = Product::with(['foto' => function($q) {
             $q->limit(1)->first();
         }])->latest()->paginate(8);
         return view('frontend.product', compact('produk'));
+    }
+
+    public function portofolio()
+    {
+        $portofolio = Portofolio::with(['foto' => function($q) {
+            $q->limit(1)->first();
+        }])->latest()->paginate(8);
+        return view('frontend.portofolio', compact('portofolio'));
     }
 
     public function staff()
@@ -49,10 +59,21 @@ class FrontendController extends Controller
         return view('frontend.detail_produk', compact('detail'));
     }
 
+    public function detail_portofolio(Portofolio $portofolio)
+    {
+        $detail = $portofolio->load('foto');
+        return view('frontend.detail_portofolio', compact('detail'));
+    }
+
     public function proker()
     {
         $proker = Proker::with('divisi')->paginate(6);
         return view('frontend.proker', compact('proker'));
+    }
+
+    public function krisar()
+    {
+        return view('frontend.krisar');
     }
 
     public function detail_post(Post $slug)
@@ -65,6 +86,21 @@ class FrontendController extends Controller
     {
         $detail = $slug->load('divisi:id,name','timeline');
         return view('frontend.detail_proker', compact('detail'));
+    }
+
+    public function krisar_store(Request $request)
+    {
+        $this->validate($request, [
+            'detail' => 'required',
+        ]);
+
+        Suggestion::create([
+            'name' => $request->name ?? 'Anonim',
+            'asal' => $request->asal ?? 'Anonim',
+            'detail' => $request->detail,
+        ]);
+
+        return redirect()->route('landing')->with('sukses','Halo');
     }
 
     public function kalender()

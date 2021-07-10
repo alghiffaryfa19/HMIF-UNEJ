@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('description','Himpunan Mahasiswa Informatika')
-@section('title','Blog')
+@section('title','Produk')
 @section('content')
 <div class="flex flex-col sm:flex-row w-full">
     <div class="flex flex-col text-center w-full mt-10 mb-1">
